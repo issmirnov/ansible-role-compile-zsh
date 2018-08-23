@@ -1,6 +1,6 @@
 galaxy_info:
   # https://github.com/ansible/galaxy/issues/791 - provide role name.
-  role_name: compile-zsh
+  role_name: "compile-zsh"
   author: Ivan Smirnov
   description: Compiles ZSH from source and installs it.
   issue_tracker_url: https://github.com/issmirnov/ansible-role-compile-zsh/issues
