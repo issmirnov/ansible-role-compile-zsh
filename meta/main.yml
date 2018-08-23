@@ -34,3 +34,6 @@ galaxy_info:
     - compile
     - source
     - makefile
+
+  # No dependencies.
+  dependencies: []
