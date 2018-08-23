@@ -25,3 +25,6 @@ before_install:
 
 script:
   - ansible-role-tester full --user fubarhouse --distribution ${distro} --destination /etc/ansible/roles/$(basename $(pwd))
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

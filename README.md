@@ -6,6 +6,7 @@ Compiles and installs the latest ZSH. Useful for systems that have old packages 
 
 Root access on a Debian or RedHat system.
 
+Get this role with `ansible-galaxy install issmirnov.compile_zsh`
 
 ## Role Variables
 
@@ -24,7 +25,7 @@ Root access on a Debian or RedHat system.
     zsh_new_users:
       - dev
   roles:
-    - issmirnov.compile-zsh
+    - issmirnov.compile_zsh
 ```
 
 ## License
