@@ -8,8 +8,9 @@ galaxy_info:
 
   min_ansible_version: 2.2
 
+  # https://galaxy.ansible.com/api/v1/platforms/
   platforms:
-  - name: Centos
+  - name: EL
     versions:
     - 6
     - 7
@@ -20,13 +21,13 @@ galaxy_info:
     - 10
   - name: Ubuntu
     versions:
-    - 14.04
-    - 16.04
-    - 16.10
-    - 17.04
-    - 17.10
-    - 18.04
-    - 18.10
+    - trusty
+    - xenial
+    - yakkety
+    - zesty
+    - artful
+    - bionic
+    - cuttlefish
 
   galaxy_tags:
     - zsh
