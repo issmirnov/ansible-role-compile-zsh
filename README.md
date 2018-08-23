@@ -1,38 +1,36 @@
-Role Name
-=========
+# Ansible Role: Compile ZSH
 
-A brief description of the role goes here.
+Compiles and installs the latest ZSH. Useful for systems that have old packages in the repos.
 
-Requirements
-------------
+## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Root access on a Debian or RedHat system.
 
-Role Variables
---------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+## Role Variables
 
-Dependencies
-------------
+- `zsh_version`: version of ZSH sources to pull. Locked to variable to allow idempotency.
+- `zsh_temp_dir`: scratch space for compilation. Defaults to `/tmp`
+- `zsh_new_users`: list of users that should use the new shell
+- `remove_system_zsh`: Remove the system installed zsh, if present.
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+## Example Playbook
 
-Example Playbook
-----------------
+```
+- name: compile and install zsh on all hosts
+  hosts: all
+  vars:
+    remove_system_zsh: yes
+    zsh_new_users:
+      - dev
+  roles:
+    - issmirnov.compile-zsh
+```
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+## License
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+MIT
 
-License
--------
+## Author Information
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+- Ivan Smirnov, https://ivansmirnov.name

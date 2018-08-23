@@ -1,2 +1,12 @@
 ---
-# defaults file for ansible-role-compile-zsh
+# we hardcode the version here rather than always pulling the latest release,
+#     since compilation dependencies may change. Idempotency is key.
+zsh_version: "5.5.1"
+
+# Directory for scratch files during compilation.
+zsh_temp_dir: /tmp
+
+zsh_new_users: []
+
+# Remove the system packaged ZSH. Useful if you want to avoid accidental conflicts.
+remove_system_zsh: no
