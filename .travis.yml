@@ -21,10 +21,12 @@ env:
   - distro: debian10
 
 before_install:
+  - sudo pip install --upgrade pip
+  - sudo pip install ansible
   - go get -v github.com/fubarhouse/ansible-role-tester
 
 script:
-  - ansible-role-tester full --user fubarhouse --distribution ${distro} --destination /etc/ansible/roles/$(basename $(pwd))
+  - ansible-role-tester full --distribution ${distro}
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
