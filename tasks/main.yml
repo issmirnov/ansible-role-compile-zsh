@@ -2,8 +2,6 @@
 - name: load distribution specific variables
   include_vars: "{{ ansible_os_family | lower }}.yml"
 
-# remove remove_system_zsh if needed
-
 - name: remove system installed zsh
   package:
     name: zsh
@@ -71,15 +69,6 @@
     register: zsh_make_install
     no_log: "{{ ansible_os_family == 'RedHat' }}"
 
-  # - debug:
-  #     var: "{{ item }}"
-  #   with_items:
-  #     - ansible_os_family
-  #     - zsh_make_install.failed
-  #     - ansible_os_family != 'RedHat'
-  #     - ansible_os_family != "RedHat"
-
-
   - name: flag failure from make install step
     fail:
       msg: "command 'make install' failed in {{ zsh_temp_dir }}/zsh-zsh-{{ zsh_version }}"
@@ -98,10 +87,6 @@
 
   when: not zsh_installed.stat.exists or zsh_version not in zsh_version_check.stdout
 
-- debug:
-    var: zsh_new_users
-
-# add users?
 - name: change shell for "{{ item }}"
   become: yes
   user:
