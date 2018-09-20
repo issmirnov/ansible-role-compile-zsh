@@ -1,6 +1,8 @@
 # Ansible Role: Compile ZSH
 
-[![Build Status](https://travis-ci.com/issmirnov/ansible-role-compile-zsh.svg?branch=master)](https://travis-ci.com/issmirnov/ansible-role-compile-zsh)
+[![Build Status](https://img.shields.io/travis/issmirnov/ansible-role-compile-zsh/master.svg?style=for-the-badge)](https://travis-ci.org/issmirnov/ansible-role-compile-zsh)
+![stability-stable](https://img.shields.io/badge/stability-stable-green.svg?style=for-the-badge)
+
 
 Compiles and installs the latest ZSH. Useful for systems that have old packages in the repos.
 
