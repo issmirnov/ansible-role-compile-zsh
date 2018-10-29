@@ -43,7 +43,7 @@
       creates: "{{ zsh_temp_dir }}/zsh-zsh-{{ zsh_version }}/configure"
 
   - name: run configure
-    shell: ./configure
+    shell: ./configure --with-tcsetpgrp
     args:
       chdir: "{{ zsh_temp_dir }}/zsh-zsh-{{ zsh_version }}"
       creates: "{{ zsh_temp_dir }}/zsh-zsh-{{ zsh_version }}/Makefile"
