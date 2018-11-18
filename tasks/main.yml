@@ -27,7 +27,6 @@
     with_items: "{{ zsh_dependencies }}"
 
   - name: download and extract zsh to "{{ zsh_temp_dir }}"
-    become: yes
     unarchive:
       src: "https://github.com/zsh-users/zsh/archive/zsh-{{ zsh_version }}.tar.gz"
       dest: "{{ zsh_temp_dir }}"
@@ -61,7 +60,6 @@
   # As such, we ignore errors here and rethrow them when it's a non-centos system.
   - name: install
     shell: make install
-    become: yes
     args:
       chdir: "{{ zsh_temp_dir }}/zsh-zsh-{{ zsh_version }}"
       creates: "/usr/local/bin/zsh"
@@ -80,12 +78,12 @@
     failed_when: zsh_version not in zsh_bin_check.stdout
 
   - name: add shell to /etc/shells
-    become: yes
     lineinfile:
       path: /etc/shells
       line: '/usr/local/bin/zsh'
 
   when: not zsh_installed.stat.exists or zsh_version not in zsh_version_check.stdout
+  become: yes
 
 - name: change shell for "{{ item }}"
   become: yes
