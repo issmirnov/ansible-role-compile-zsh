@@ -22,9 +22,8 @@
 - block:
   - name: install compilation dependencies
     package:
-      name: "{{ item }}"
+      name: "{{ zsh_dependencies }}"
       state: present
-    with_items: "{{ zsh_dependencies }}"
 
   - name: download and extract zsh to "{{ zsh_temp_dir }}"
     unarchive:
