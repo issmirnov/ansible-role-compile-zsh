@@ -1,8 +1,10 @@
 ---
+language: go
+install: true # https://arslan.io/2018/08/26/using-go-modules-with-vendor-support-on-travis-ci/
+sudo: false
+
 go:
-  - 1.10
-python:
-  - 2.7
+  - 1.13
 
 services: docker
 
@@ -15,9 +17,12 @@ env:
   - distro: debian10
 
 before_install:
-  - sudo pip install --upgrade pip
-  - sudo pip install ansible
-  - go get -v github.com/fubarhouse/ansible-role-tester
+  - sudo apt update
+  - sudo apt install software-properties-common
+  - sudo apt-add-repository --yes ppa:ansible/ansible
+  - sudo apt update
+  - sudo apt install ansible
+  - GO111MODULE=on go get -v github.com/fubarhouse/ansible-role-tester
 
 script:
   - ansible-role-tester full --distribution ${distro}
