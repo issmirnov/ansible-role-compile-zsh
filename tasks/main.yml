@@ -1,4 +1,9 @@
 ---
+- name: Check that OS is supported.
+  assert:
+    that:
+      - ansible_os_family == "Debian" or ansible_os_family == "RedHat"
+
 - name: load distribution specific variables
   include_vars: "{{ ansible_os_family | lower }}.yml"
 
