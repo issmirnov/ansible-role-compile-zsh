@@ -6,7 +6,7 @@
   package:
     name: zsh
     state: absent
-  when: remove_system_zsh
+  when: "{{ remove_system_zsh | bool }}"
 
 - name: check if zsh already installed
   stat: "path=/usr/local/bin/zsh"
