@@ -9,7 +9,6 @@ go:
 services: docker
 
 env:
-  - distro: ubuntu1404
   - distro: ubuntu1604
   - distro: ubuntu1804
   - distro: ubuntu1810
