@@ -3,4 +3,5 @@ zsh_dependencies:
   - libncurses-dev
   - make
   - autoconf
+  - man-db
   - gcc
