@@ -1,7 +1,7 @@
 ---
 # we hardcode the version here rather than always pulling the latest release,
 #     since compilation dependencies may change. Idempotency is key.
-zsh_version: "5.5.1"
+zsh_version: "5.8"
 
 # Directory for scratch files during compilation.
 zsh_temp_dir: /tmp
