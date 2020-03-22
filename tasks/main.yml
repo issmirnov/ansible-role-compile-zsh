@@ -66,10 +66,11 @@
     shell: make install
     args:
       chdir: "{{ zsh_temp_dir }}/zsh-zsh-{{ zsh_version }}"
-      creates: "/usr/local/bin/zsh"
+      # creates: "/usr/local/bin/zsh" # this breaks actual updates at the cost of idempotency.
     ignore_errors: yes
     register: zsh_make_install
     no_log: "{{ ansible_os_family == 'RedHat' }}"
+    changed_when: false
 
   - name: flag failure from make install step
     fail:
@@ -80,7 +81,7 @@
     shell: /usr/local/bin/zsh --version
     register: zsh_bin_check
     failed_when: zsh_version not in zsh_bin_check.stdout
-
+    changed_when: zsh_version in zsh_bin_check.stdout
   - name: add shell to /etc/shells
     lineinfile:
       path: /etc/shells
